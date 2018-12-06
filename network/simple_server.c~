@@ -3,6 +3,7 @@
 #include<string.h>
 #include<Winsock2.h>
 #include<Windows.h>
+#include"hacking.h"
 
 #define PORT 7890
 
