@@ -1,0 +1,19 @@
+#include<stdio.h>
+
+const double pi=3.14159265;
+
+void sphere(double *r,double *S,double *V){
+	int R=*r;
+	*S=4.0*pi*R*R;
+	*V=4.0/3.0*pi*R*R*R;
+}
+
+int main(){
+	double r,S,V;
+	printf("円の半径rを入力：");
+	scanf("%lf",&r);
+	sphere(&r,&S,&V);
+	printf("表面積：%lf 体積：%lf\n",S,V);
+
+return 0;
+}
