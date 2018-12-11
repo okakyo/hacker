@@ -12,7 +12,7 @@ int main(){
 
 	for(int i=0; i<5;i++){
 		printf("[整数のポインタ]は%pを指しており、その内容は%dです\n",int_pointer,*int_pointer);
-		int_pointer=1;}
+		int_pointer+=1;}
 	for(int i=0; i<5;i++){
 		printf("[文字のポインタ]は%pを指しており、その内容は%cです\n",char_pointer,*char_pointer);
 		char_pointer+=1;}
