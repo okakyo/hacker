@@ -1,14 +1,15 @@
 #include<stdio.h>
 #include<math.h>
 
-double check(double p,double q,double r,double s){
-return p*q-r*s;
+double check(,metrix[],double a,double b){
+return metrix[a][b]*metrix[a+1][b+1]-metrix[a+1][b]*metrix[a][b+1];
 }
 
 void gyaku(double metrix[],double *ans[]){
 	double abs=0;
 	for(int i=0;i<3;i++)
 		for(int j=1;j<3;j++){
+		abs+=metrix[0][i]*check(metrix,i,j);
 		}
 }
 

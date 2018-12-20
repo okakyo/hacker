@@ -1,16 +1,15 @@
 #include<stdio.h>
 #include<math.h>
 
-double check(,metrix[],double a,double b){
-return metrix[a][b]*metrix[a+1][b+1]-metrix[a+1][b]*metrix[a][b+1];
+double check(i,j){
+return a[i%3][(i+1)%3]*a[(i+1)%3][(i+2)%3]-a[(i+1)%3][(i+1)%3]*a[2][(i+2)%3]
 }
 
-void gyaku(double metrix[],double *ans[]){
+void gyaku(double a[],double *ans[]){
 	double abs=0;
 	for(int i=0;i<3;i++)
-		for(int j=1;j<3;j++){
-		abs+=metrix[0][i]*check(metrix,i,j);
-		}
+		abs+=(a[0][i]*(a[1][(i+1)%3]*a[2][(i+2)%3]-a[1][(i+2)%3]*a[2][(i+1)%3]);
+	
 }
 
 int main(){
