@@ -1,30 +1,45 @@
 #include<stdio.h>
 #include<math.h>
 
-double check(,metrix[],double a,double b){
-return metrix[a][b]*metrix[a+1][b+1]-metrix[a+1][b]*metrix[a][b+1];
-}
-
-void gyaku(double metrix[],double *ans[]){
-	double abs=0;
-	for(int i=0;i<3;i++)
-		for(int j=1;j<3;j++){
-		abs+=metrix[0][i]*check(metrix,i,j);
-		}
-}
-
 int main(){
-	double metrix[3][3],ans[3][3];
-	printf("行列を入力してください。:");
-	for(int i=0;i<3;i++)
-		scanf("%lf%lf%lf",&metrix[i][0],&metrix[i][1],&metrix[i][2]);
-	gyaku(metrix,&ans);
-	printf("入力された行列の逆行列は、[");
-	for(int i=0;i<3;i++)
-		pritnf("%lf%lf%lf\n",ans[i][0],ans[i][1],ans[i][2]);
-
-	printf("]です。\n");
+	double a[3][3];
+	double inv_a[3][3]; 
+	double buf; 
+	int i,j,k; 
+	int n=3;  
 	
-
-return 0;
+	printf("行列を入力してください。：");
+	for (i=0;i<n;i++){
+		printf("%d行目：",i+1);
+		scanf("%lf%lf%lf",&a[0][i],&a[1][i],&a[2][i]);
+	}
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+		inv_a[i][j]=(i==j)?1.0:0.0;
+		}
+	}
+	for(i=0;i<n;i++){
+		buf=1/a[i][i];
+		for(j=0;j<n;j++){
+			a[i][j]*=buf;
+			inv_a[i][j]*=buf;
+		}	
+		for(j=0;j<n;j++){
+			if(i!=j){
+			  buf=a[j][i];
+			    for(k=0;k<n;k++){
+		       a[j][k]-=a[i][k]*buf;
+			 inv_a[j][k]-=inv_a[i][k]*buf;
+			    }
+		     }
+	    }
+	}
+	printf("逆行列は、[");
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+		printf(" %lf",inv_a[i][j]);
+		}
+	printf("\n");
+	}
+	printf("]です。");
 }
