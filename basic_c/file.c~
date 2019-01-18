@@ -29,7 +29,7 @@ int main(){
 	fp=fopen("seiseki.dat","r");
 	n=0;
 	for (i=0;i<DATA;i++){
-		if(fscanf(fp,"%d %d %d %d",&Num[i],&Jap[i],&Math[i],&Eng[i])==EOF)break;
+		if(fscanf(fp,"%d,%d,%d,%d",&Num[i],&Jap[i],&Math[i],&Eng[i])==EOF)break;
 		n++;
 		Sum[i]=Jap[i]+Math[i]+Eng[i];	
 	}
